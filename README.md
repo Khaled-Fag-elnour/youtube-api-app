@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Description.
 ## Home page
-<img src="screenshots/home.PNG">
+<img src="screenshots/home.PNG" width="950">
 
 - This is a simple project implemented with angular 11 and integrating with youtube's official api. The home page displays the videos of a specific channel.
 - Videos can be ordered by title or date.
@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Videos are chached into local storage.
 
 ## Video Details
-<img src="screenshots/videoDetails.PNG">
+<img src="screenshots/videoDetails.PNG" width="950">
 
 - Video details page displays full details of the selected video.
 - Rating the video and add to favourites functionality integrating with firebase firestore sdk.
