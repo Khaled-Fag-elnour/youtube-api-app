@@ -2,26 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
 
-## Development server
+#Description.
+##Home page
+<img src="screenshots/home.png">
+This is a simple project implemented with angular 11 and integrating with youtube's official api. The home page displays the videos of a specific channel.
+Videos can be ordered by title or date.
+There is a search functionality by title.
+Channel can be set by typing the channel's url to get the related videos.
+Videos are chached into local storage.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##Video Details
+<img src="screenshots/videoDetails.png">
+Video details page displays full details of the selected video.
+Rating the video and add to favourites functionality integrating with firebase firestore sdk.
 
-## Code scaffolding
+#About the project.
+CSS used libraries such as bootstrap https://getbootstrap.com/docs/5.0/getting-started/introduction/, fontawesome https://fontawesome.com/, angular-star-rating https://github.com/BioPhoton/angular-star-rating
+Firebase firestore SDK, and @angular/fire also used for deploying the project on firebase server.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#Project Setup.
+npm install
+ng serve
