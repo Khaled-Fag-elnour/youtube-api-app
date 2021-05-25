@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'youtube-api-task'`, () => {
+  it(`should have as title 'youtube-api-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('youtube-api-task');
+    expect(app.title).toEqual('youtube-api-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('youtube-api-task app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('youtube-api-app app is running!');
   });
 });

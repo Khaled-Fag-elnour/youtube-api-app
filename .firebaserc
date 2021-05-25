@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-webapp-8001a": {
+      "hosting": {
+        "youtube-api-app": [
+          "fir-webapp-8001a"
+        ]
+      }
+    }
+  }
+}

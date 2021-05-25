@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '/src/scss/variables';
+@import '/src/scss/mixins';
+
+body {
+  overflow-x: hidden;
+}
+
+.custom-btn {
+  display: inline-block;
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+  border-radius: 1px;
+  border: none;
+  white-space: nowrap;
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 4px 15px;
+  }
+}
+
+.btn-details {
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  &:hover {
+    color: #fff;
+    background-color: $btnColor;
+    border-color: $btnColor;
+  }
+}
+
+.favourites-btn {
+  color: #fff;
+  background-color: $btnColor;
+  border: 1px solid $btnColor;
+  &:hover {
+    background-color: #a39595;
+    border-color: #ad9999;
+  }
+}
+
+.favourites-btn-added {
+  background-color: #776969;
+  border: 1px solid #776969;
+  color: #fff;
+}
+
+.radius-btn {
+  background-color: #fff;
+  color: #212529;
+  border-radius: 30px;
+  padding: 10px 30px;
+  &:hover {
+    background-color: #313539;
+    color: #fff;
+  }
+  &:disabled {
+    background-color: #fff;
+    color: #212529;
+  }
+}

@@ -1,0 +1,68 @@
+
+<section class="loading" *ngIf="loading">
+  <div class="loader"></div>
+</section>
+
+<header>
+  <img class="logo" src="assets/images/logo.png" alt="">
+  <div class="search">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <input (input)="search()" [(ngModel)]="titleKeyword" placeholder="Search by video title" type="text" name="titleInput" id="titleInput">
+  </div>
+</header>
+
+<section class="videos">
+  <div class="container-fluid">
+    <div class="channelSearch">
+      <input [(ngModel)]="channelUrl" placeholder="Enter Channel Url" type="text" name="channelUrlInput" id="channelUrlInput">
+      <button [disabled]="!channelUrl" (click)="getVideosByChannelId()" class="custom-btn radius-btn">Get Videos</button>
+    </div>
+    <ng-container *ngIf="channelVideos.length > 0; else elseTemplate">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <div (click)="order('title')" class="sort sort-title">
+                <span class="sort-icon"><i class="fa fa-sort"></i></span>
+                Title
+              </div>
+            </th>
+            <th>
+              <div (click)="order('date')" class="sort sort-date">
+                <span class="sort-icon"><i class="fa fa-sort"></i></span>
+                Publish Date
+              </div>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let video of channelVideos">
+            <td>
+              <img class="table-img" [src]="video.snippet.thumbnails.default.url" alt="">
+            </td>
+            <td class="font-default">{{video.snippet.title}}</td>
+            <td class="font-default">{{video.snippet.publishedAt | date:'mediumDate'}}</td>
+            <td>
+              <a [routerLink]="'/videoDetails/'+video.id.videoId" class="custom-btn btn-details">Details</a>
+            </td>
+          </tr>
+        </tbody>  
+      </table>
+  
+      <div class="pagination-arrows">
+        <div (click)="prev()" [ngClass]="{'disabled': !prevPageToken}" class="btn-arrow"><i class="fa fa-chevron-left"></i></div>
+        <div (click)="next()" [ngClass]="{'disabled': !nextPageToken}" class="btn-arrow"><i class="fa fa-chevron-right"></i></div>
+      </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h3 class="mt-3 ms-3 text-muted">No Results Found</h3>
+    </ng-template>
+    
+
+  </div>
+</section>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "youtube-api-task": {
+    "youtube-api-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/youtube-api-task",
+            "outputPath": "dist/youtube-api-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/css-star-rating/css/star-rating.min.css"
             ],
             "scripts": []
           },
@@ -68,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "youtube-api-task:build"
+            "browserTarget": "youtube-api-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "youtube-api-task:build:production"
+              "browserTarget": "youtube-api-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "youtube-api-task:build"
+            "browserTarget": "youtube-api-app:build"
           }
         },
         "test": {
@@ -116,16 +119,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "youtube-api-task:serve"
+            "devServerTarget": "youtube-api-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "youtube-api-task:serve:production"
+              "devServerTarget": "youtube-api-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "youtube-api-task"
+  "defaultProject": "youtube-api-app"
 }

@@ -1,0 +1,72 @@
+
+<ng-container *ngIf="videoDetails; else elseTemplate">
+  <section>
+    <div class="image-container">
+      <img class="w-100" [src]="videoDetails?.snippet?.thumbnails?.standard?.url" alt="">
+    </div>
+    <div class="part head">
+      <div class="container">
+        <h4 class="title">{{videoDetails?.snippet?.title}}</h4>
+        <ng-container *ngIf="!isAddedToFavourites; else elseTemplate">
+          <button [disabled]="btnDisabled" (click)="switchFavouriteState()" class="custom-btn favourites-btn">Add to favourites</button>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <button [disabled]="btnDisabled" (click)="switchFavouriteState()" class="custom-btn favourites-btn-added">
+            <span><i class="fa fa-check"></i></span>
+            Added to favourites
+          </button>
+        </ng-template>
+        
+      </div>
+    </div>
+    <div class="part video-details">
+      <div class="container">
+        <div class="rate">
+          <h5 class="details-text">Rate now</h5>
+          <star-rating
+            style="margin-top: 5px;"
+            [starType]="'svg'"
+            [staticColor]="'negative'"
+            (starClickChange)="onStarClick($event)"
+            [rating]="rating">
+          </star-rating>
+        </div>
+        <h5 class="details-text duration">
+          Duration: {{videoDetails?.contentDetails?.duration | duration}}
+        </h5>
+        <div class="numbers">
+          <div class="views">
+            <h5 class="details-text">
+              <span><i class="fa fa-eye"></i></span>
+              {{videoDetails?.statistics.viewCount | number}}
+            </h5>
+          </div>
+          <div class="like">
+            <h5 class="details-text">
+              <span><i class="fa fa-thumbs-up"></i></span>
+              {{videoDetails?.statistics.likeCount | number}}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="part main-details">
+      <div class="container">
+        <h5 class="date red-text">Published on <span>{{videoDetails?.snippet.publishedAt | date: 'mediumDate'}}</span></h5>
+        <p class="description">
+          {{videoDetails?.snippet.description | slice:0:500}}...
+        </p>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="container">
+    <h3 class="text-muted mt-3">Video Not Found</h3>
+  </div>
+</ng-template>
+
+
+
+<!-- <i class="fas fa-check"></i>
+<i class="fas fa-star"></i> -->
